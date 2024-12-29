@@ -34,9 +34,6 @@ app.post('/',async (req, res) =>{
                 { role:"system", content:"You are a helpful assistant." },
                 { role:"user",content: prompt }
             ],
-            response_format: {
-                "type": "text"
-              },
             temperature: 0.77,
             max_completion_tokens: 503,
             top_p: 0.9,
@@ -45,7 +42,6 @@ app.post('/',async (req, res) =>{
           });
 
           const botResponse = response.choices[0].message.content;
-          console.log(botResponse);
         res.status(200).send({
             bot: botResponse
         });
@@ -55,4 +51,5 @@ app.post('/',async (req, res) =>{
     }
 });
 
-app.listen(5000, () => console.log('AI server started on http://localhost:5000'));
+// app.listen(5000, () => console.log('AI server started on http://localhost:5000'));
+export default app;
